@@ -12,9 +12,10 @@ let pool: pg.Pool | null = null;
 
 function getPool(): pg.Pool {
   if (!pool) {
+    const connectionString = process.env["DATABASE_URL"];
     pool = new Pool({
-      connectionString: process.env["DATABASE_URL"],
-      ssl: process.env["NODE_ENV"] === "production" ? { rejectUnauthorized: false } : false,
+      connectionString,
+      ssl: connectionString ? { rejectUnauthorized: false } : false,
     });
   }
   return pool;
