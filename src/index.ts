@@ -1,10 +1,4 @@
-import express from 'express';
-const app = express();
-const PORT = process.env.PORT || 10000;
 
-app.get('/', (req, res) => res.send('✅ Bot Running'));
-
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 import { Client, GatewayIntentBits, Partials, Message, GuildMember, SlashCommandBuilder, ChatInputCommandInteraction, ChannelType } from "discord.js";
 import { logger } from "./logger.js";
 import { helpCommand } from "./commands/help.js";
