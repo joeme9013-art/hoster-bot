@@ -1,3 +1,12 @@
+import express from 'express';
+const app = express();
+const PORT = process.env.PORT || 10000;
+
+// This stops the 404 error
+app.get('/', (req, res) => res.send('✅ Bot is running'));
+
+// Start the web server
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 import { Client, GatewayIntentBits, Partials, Message, GuildMember, SlashCommandBuilder, ChatInputCommandInteraction, ChannelType } from "discord.js";
 import { logger } from "./logger.js";
 import { helpCommand } from "./commands/help.js";
